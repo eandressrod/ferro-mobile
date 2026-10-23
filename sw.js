@@ -1,4 +1,4 @@
-const CACHE_NAME = "ferro-shell-v1";
+const CACHE_NAME = "ferro-shell-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -6,6 +6,11 @@ const APP_SHELL = [
   "./app.js",
   "./manifest.webmanifest",
   "./assets/products.svg",
+  "./assets/product-photos/drill.png",
+  "./assets/product-photos/hammer.png",
+  "./assets/product-photos/pliers.png",
+  "./assets/product-photos/ladder.png",
+  "./assets/product-photos/paint.png",
   "./assets/icon.svg",
   "./assets/icon-180.png",
   "./assets/icon-192.png",

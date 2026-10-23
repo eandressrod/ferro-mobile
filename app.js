@@ -9,7 +9,8 @@ const products = [
     rating: 4.9,
     reviews: 86,
     badge: "-14%",
-    visual: "drill"
+    visual: "drill",
+    photo: "assets/product-photos/drill.png"
   },
   {
     id: "hammer",
@@ -19,7 +20,8 @@ const products = [
     stock: 24,
     rating: 4.8,
     reviews: 64,
-    visual: "hammer"
+    visual: "hammer",
+    photo: "assets/product-photos/hammer.png"
   },
   {
     id: "tape",
@@ -40,7 +42,8 @@ const products = [
     stock: 0,
     rating: 4.6,
     reviews: 39,
-    visual: "pliers"
+    visual: "pliers",
+    photo: "assets/product-photos/pliers.png"
   },
   {
     id: "ladder",
@@ -52,7 +55,8 @@ const products = [
     reviews: 27,
     badge: "-10%",
     previousPrice: 719,
-    visual: "ladder"
+    visual: "ladder",
+    photo: "assets/product-photos/ladder.png"
   },
   {
     id: "paint",
@@ -62,7 +66,8 @@ const products = [
     stock: 12,
     rating: 4.9,
     reviews: 72,
-    visual: "paint"
+    visual: "paint",
+    photo: "assets/product-photos/paint.png"
   }
 ];
 
@@ -94,6 +99,7 @@ const productDetails = {
 };
 
 const categories = ["Todos", "Herramientas", "Medición", "Pintura", "Construcción"];
+const quetzalesPerDollar = 7.6419;
 
 const state = {
   screen: "login",
@@ -172,7 +178,8 @@ let toastTimer;
 let deferredInstallPrompt = null;
 
 function money(value) {
-  return `Q${value.toLocaleString("es-GT", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" })
+    .format(value / quetzalesPerDollar);
 }
 
 function normalize(value) {
@@ -180,6 +187,11 @@ function normalize(value) {
     .toLocaleLowerCase("es")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
+}
+
+function productVisual(product, alt = "") {
+  if (product.photo) return `<img src="${product.photo}" alt="${alt}" loading="lazy">`;
+  return `<svg aria-hidden="true"><use href="assets/products.svg#${product.visual}"></use></svg>`;
 }
 
 function productCard(product) {
@@ -199,7 +211,7 @@ function productCard(product) {
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.8l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.4 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg>
         </button>
         <button class="product-image-button" type="button" data-view-product="${product.id}" aria-label="Ver detalle de ${product.name}">
-          <svg aria-hidden="true"><use href="assets/products.svg#${product.visual}"></use></svg>
+          ${productVisual(product)}
         </button>
       </div>
       <div class="product-info">
@@ -277,7 +289,7 @@ function renderProductDetail() {
     <div class="detail-visual" data-product="${product.id}">
       ${badge}
       <span class="detail-visual-ring" aria-hidden="true"></span>
-      <svg aria-hidden="true"><use href="assets/products.svg#${product.visual}"></use></svg>
+      ${productVisual(product, product.name)}
     </div>
     <div class="detail-content">
       <span class="product-category">${product.category}</span>
@@ -352,7 +364,7 @@ function renderCart() {
 
   els.cartItems.innerHTML = entries.map(({ product, quantity }) => `
     <article class="cart-item">
-      <div class="cart-item-visual"><svg aria-hidden="true"><use href="assets/products.svg#${product.visual}"></use></svg></div>
+      <div class="cart-item-visual">${productVisual(product)}</div>
       <div class="cart-item-info">
         <div class="cart-item-top">
           <h3>${product.name}</h3>
