@@ -1,0 +1,26 @@
+{
+  "name": "Ferro — Ferretería móvil",
+  "short_name": "Ferro",
+  "description": "Encuentra y compra herramientas y materiales desde tu teléfono.",
+  "lang": "es-GT",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7f8f8",
+  "theme_color": "#0b2239",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

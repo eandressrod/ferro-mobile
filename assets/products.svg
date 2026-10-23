@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="drill" viewBox="0 0 160 120">
+    <path d="M42 30h69c10 0 18 8 18 18v9c0 10-8 18-18 18H42z" fill="#ff6b00"/>
+    <path d="M30 38h20v30H30c-7 0-12-5-12-12v-6c0-7 5-12 12-12z" fill="#17314f"/>
+    <path d="M125 46h24v13h-24z" fill="#8a9bad"/>
+    <path d="M65 71h35l-5 39H72z" fill="#17314f"/>
+    <path d="M73 78h19l-2 17H76z" fill="#ff8b38"/>
+    <circle cx="105" cy="52" r="10" fill="#f5f7f9"/>
+    <circle cx="105" cy="52" r="4" fill="#8a9bad"/>
+  </symbol>
+  <symbol id="hammer" viewBox="0 0 160 120">
+    <path d="M70 35l18-9 43 19-8 21-47-12z" fill="#17314f"/>
+    <path d="M31 30l39 5 6 19-33 9z" fill="#8a9bad"/>
+    <path d="M75 52l17 6-22 55-17-7z" fill="#ff6b00"/>
+    <path d="M57 96l17 6-5 12-17-6z" fill="#17314f"/>
+  </symbol>
+  <symbol id="tape" viewBox="0 0 160 120">
+    <path d="M36 37c0-12 10-22 22-22h42c20 0 36 16 36 36v34c0 11-9 20-20 20H56c-11 0-20-9-20-20z" fill="#ffb000"/>
+    <path d="M49 39h48c12 0 22 10 22 22v26H49z" fill="#17314f"/>
+    <circle cx="79" cy="64" r="20" fill="#f5f7f9"/>
+    <circle cx="79" cy="64" r="9" fill="#8a9bad"/>
+    <path d="M116 80h31v12h-31z" fill="#dfe6ec"/>
+    <path d="M124 80v7m8-7v7m8-7v7" stroke="#17314f" stroke-width="2"/>
+  </symbol>
+  <symbol id="pliers" viewBox="0 0 160 120">
+    <path d="M65 56L29 19c-6 12-3 27 7 37l19 18z" fill="#8a9bad"/>
+    <path d="M94 56l36-37c6 12 3 27-7 37l-19 18z" fill="#8a9bad"/>
+    <circle cx="79" cy="62" r="15" fill="#17314f"/>
+    <circle cx="79" cy="62" r="6" fill="#f5f7f9"/>
+    <path d="M72 71L45 113c-3 5-10 6-14 2-4-3-4-9-1-13l32-40zM87 71l27 42c3 5 10 6 14 2 4-3 4-9 1-13L97 62z" fill="#ff6b00"/>
+  </symbol>
+  <symbol id="ladder" viewBox="0 0 160 120">
+    <path d="M39 112L65 9h12L53 112zM121 112L95 9H83l24 103z" fill="#8a9bad"/>
+    <path d="M56 40h49v8H56zM50 64h61v8H50zM45 88h71v8H45z" fill="#17314f"/>
+    <path d="M68 9h24v9H68z" fill="#ff6b00"/>
+  </symbol>
+  <symbol id="paint" viewBox="0 0 160 120">
+    <path d="M35 43h91l-8 65H43z" fill="#f5f7f9" stroke="#17314f" stroke-width="6"/>
+    <path d="M40 48h81l-2 19H42z" fill="#ff6b00"/>
+    <path d="M56 41c0-18 11-29 24-29s24 11 24 29" fill="none" stroke="#8a9bad" stroke-width="7"/>
+    <path d="M63 76h35v18H63z" fill="#17314f"/>
+    <path d="M98 76c6 0 11 4 11 9s-5 9-11 9" fill="none" stroke="#17314f" stroke-width="5"/>
+  </symbol>
+</svg>

@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b2239">
+  <meta name="description" content="Ferretería móvil para encontrar y comprar herramientas y materiales.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ferro">
+  <title>Ferro</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell" id="app">
+    <section class="screen auth-screen screen--active" id="screen-login" aria-labelledby="login-title">
+      <div class="auth-hero">
+        <div class="brand brand--light" aria-label="Ferro">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <span>ferro</span>
+        </div>
+        <div class="auth-illustration" aria-hidden="true">
+          <span class="auth-grid"></span>
+          <span class="auth-wrench">⌁</span>
+          <span class="auth-bolt"></span>
+        </div>
+        <p>Todo para construir,<br>reparar y mejorar.</p>
+      </div>
+
+      <div class="auth-panel">
+        <div>
+          <span class="eyebrow">Bienvenido</span>
+          <h1 id="login-title">Inicia sesión</h1>
+        </div>
+        <form id="login-form" novalidate>
+          <label class="field-label" for="email">Correo electrónico</label>
+          <div class="field-control">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5zM4.5 7l7.5 5 7.5-5"/></svg>
+            <input id="email" name="email" type="email" autocomplete="email" value="cliente@ferro.gt" required>
+          </div>
+
+          <label class="field-label" for="password">Contraseña</label>
+          <div class="field-control" id="password-field">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M5 10h14v10H5z"/></svg>
+            <input id="password" name="password" type="password" autocomplete="current-password" value="ferro123" required>
+            <button class="icon-button icon-button--field" id="toggle-password" type="button" aria-label="Mostrar contraseña">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.5"/></svg>
+            </button>
+          </div>
+          <p class="field-error" id="login-error" role="alert" hidden>Correo o contraseña incorrectos.</p>
+
+          <button class="primary-button" type="submit">Entrar</button>
+          <button class="text-button" type="button">¿Olvidaste tu contraseña?</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="screen app-screen" id="screen-home" aria-labelledby="home-title" hidden>
+      <div class="screen-scroll">
+        <header class="home-header">
+          <div class="top-row">
+            <button class="location-button" type="button" aria-label="Cambiar ubicación de entrega">
+              <span class="round-icon round-icon--orange"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <span><small>Entregar en</small><strong>Zona 10, Guatemala</strong></span>
+              <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 10 3 3 3-3"/></svg>
+            </button>
+            <button class="avatar-button" type="button" aria-label="Perfil de Andrea">AR</button>
+          </div>
+          <div class="home-title-row">
+            <div>
+              <span class="eyebrow eyebrow--orange">Buenos días, Andrea</span>
+              <h1 id="home-title">¿Qué necesitas hoy?</h1>
+            </div>
+          </div>
+          <form class="search-control search-control--home" id="home-search-form" role="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input id="home-search" type="search" placeholder="Buscar herramientas, materiales..." aria-label="Buscar productos">
+            <button type="button" class="scan-button" aria-label="Escanear producto">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V5a1 1 0 0 1 1-1h4M15 4h4a1 1 0 0 1 1 1v4M20 15v4a1 1 0 0 1-1 1h-4M9 20H5a1 1 0 0 1-1-1v-4M8 12h8"/></svg>
+            </button>
+          </form>
+        </header>
+
+        <div class="home-content">
+          <button class="install-card" id="install-app" type="button" hidden>
+            <span class="install-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg></span>
+            <span><strong>Instalar Ferro</strong><small>Acceso rápido desde tu inicio</small></span>
+            <span class="install-action">Instalar</span>
+          </button>
+          <article class="promo-card">
+            <div>
+              <span class="promo-tag">Oferta de la semana</span>
+              <h2>Renueva tu caja de herramientas</h2>
+              <p>Hasta 25% de descuento</p>
+              <button class="promo-button" type="button" data-open-category="Herramientas">Ver ofertas</button>
+            </div>
+            <div class="promo-visual" aria-hidden="true">
+              <span class="promo-circle"></span>
+              <svg><use href="assets/products.svg#drill"></use></svg>
+            </div>
+          </article>
+
+          <section class="content-section" aria-labelledby="categories-title">
+            <div class="section-heading">
+              <h2 id="categories-title">Categorías</h2>
+              <button class="link-button" type="button" data-nav="catalog">Ver todas</button>
+            </div>
+            <div class="category-row">
+              <button class="category-card" type="button" data-open-category="Herramientas"><span>⚒</span><strong>Herramientas</strong></button>
+              <button class="category-card" type="button" data-open-category="Medición"><span>⌖</span><strong>Medición</strong></button>
+              <button class="category-card" type="button" data-open-category="Pintura"><span>◒</span><strong>Pintura</strong></button>
+              <button class="category-card" type="button" data-open-category="Construcción"><span>▦</span><strong>Construcción</strong></button>
+            </div>
+          </section>
+
+          <section class="content-section" aria-labelledby="featured-title">
+            <div class="section-heading">
+              <h2 id="featured-title">Más buscados</h2>
+              <button class="link-button" type="button" data-nav="catalog">Ver catálogo</button>
+            </div>
+            <div class="featured-grid" id="featured-products"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen app-screen" id="screen-catalog" aria-labelledby="catalog-title" hidden>
+      <div class="screen-scroll catalog-scroll">
+        <header class="inner-header catalog-header">
+          <div class="top-row">
+            <div>
+              <span class="eyebrow eyebrow--orange">Encuentra lo que necesitas</span>
+              <h1 id="catalog-title">Catálogo</h1>
+            </div>
+            <button class="round-button" type="button" aria-label="Abrir filtros" id="open-filters">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"/></svg>
+              <span class="filter-indicator" id="filter-indicator" hidden></span>
+            </button>
+          </div>
+          <div class="search-control search-control--catalog">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input id="catalog-search" type="search" placeholder="Buscar en el catálogo" aria-label="Buscar en el catálogo">
+            <button type="button" class="clear-search" id="clear-search" aria-label="Borrar búsqueda" hidden>×</button>
+          </div>
+          <div class="chip-row" id="category-chips" aria-label="Filtrar por categoría"></div>
+        </header>
+
+        <div class="catalog-content">
+          <div class="results-row">
+            <p id="results-count" aria-live="polite"></p>
+            <label class="sort-control">Ordenar
+              <select id="sort-select" aria-label="Ordenar productos">
+                <option value="relevance">Relevancia</option>
+                <option value="price-asc">Menor precio</option>
+                <option value="price-desc">Mayor precio</option>
+              </select>
+            </label>
+          </div>
+          <div class="product-grid" id="catalog-products"></div>
+          <div class="empty-state" id="search-empty" hidden>
+            <span class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5M8 8l4 4m0-4-4 4"/></svg></span>
+            <h2>Sin resultados</h2>
+            <p>Prueba otra búsqueda o elimina los filtros.</p>
+            <button class="secondary-button" id="reset-filters" type="button">Limpiar filtros</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen app-screen product-screen" id="screen-product" aria-labelledby="detail-title" hidden>
+      <header class="detail-header">
+        <button class="round-button detail-back" id="product-back" type="button" aria-label="Volver">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+        </button>
+        <strong>Detalle del producto</strong>
+        <button class="round-button detail-favorite" id="detail-favorite" type="button" aria-label="Agregar a favoritos">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.8l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.4 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg>
+        </button>
+      </header>
+      <div class="screen-scroll detail-scroll">
+        <div id="product-detail-content"></div>
+      </div>
+      <footer class="detail-action-bar">
+        <button class="secondary-button detail-add-button" id="detail-add" type="button">Agregar al carrito</button>
+        <button class="primary-button detail-buy-button" id="detail-buy" type="button">Comprar ahora</button>
+      </footer>
+    </section>
+
+    <section class="screen app-screen" id="screen-cart" aria-labelledby="cart-title" hidden>
+      <div class="screen-scroll cart-scroll">
+        <header class="inner-header cart-header">
+          <div>
+            <span class="eyebrow eyebrow--orange">Revisa tu pedido</span>
+            <h1 id="cart-title">Tu compra</h1>
+          </div>
+          <button class="text-button text-button--danger" id="clear-cart" type="button">Vaciar</button>
+        </header>
+
+        <div class="cart-content" id="cart-content">
+          <section class="cart-block" aria-labelledby="delivery-title">
+            <div class="section-heading section-heading--compact">
+              <h2 id="delivery-title">Entrega</h2>
+            </div>
+            <button class="delivery-card" type="button">
+              <span class="round-icon round-icon--pale"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+              <span><strong>6a Avenida 12-34</strong><small>Zona 10, Guatemala</small></span>
+              <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+            </button>
+          </section>
+
+          <section class="cart-block" aria-labelledby="items-title">
+            <div class="section-heading section-heading--compact">
+              <h2 id="items-title">Productos <span id="cart-count-label"></span></h2>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+          </section>
+
+          <section class="cart-block" aria-labelledby="payment-title">
+            <div class="section-heading section-heading--compact"><h2 id="payment-title">Forma de pago</h2></div>
+            <div class="payment-options">
+              <label class="payment-option payment-option--selected">
+                <input type="radio" name="payment" value="card" checked>
+                <span class="payment-icon">••••</span>
+                <span><strong>Visa terminada en 4242</strong><small>Pago seguro</small></span>
+                <span class="radio-mark"></span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cash">
+                <span class="payment-icon payment-icon--cash">Q</span>
+                <span><strong>Pago contra entrega</strong><small>Efectivo o POS</small></span>
+                <span class="radio-mark"></span>
+              </label>
+            </div>
+          </section>
+
+          <section class="summary-card" aria-labelledby="summary-title">
+            <h2 id="summary-title">Resumen</h2>
+            <dl>
+              <div><dt>Subtotal</dt><dd id="subtotal">Q0.00</dd></div>
+              <div><dt>Envío</dt><dd id="delivery-fee">Q25.00</dd></div>
+              <div class="summary-total"><dt>Total</dt><dd id="total">Q0.00</dd></div>
+            </dl>
+          </section>
+          <button class="primary-button checkout-button" id="checkout-button" type="button">Confirmar compra <span id="checkout-total"></span></button>
+        </div>
+
+        <div class="empty-state empty-state--cart" id="cart-empty" hidden>
+          <span class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2 11h10l3-8H6M9 20h.01M17 20h.01"/></svg></span>
+          <h2>Tu carrito está vacío</h2>
+          <p>Explora el catálogo y agrega lo que necesitas.</p>
+          <button class="primary-button primary-button--auto" type="button" data-nav="catalog">Ver catálogo</button>
+        </div>
+      </div>
+    </section>
+
+    <nav class="bottom-nav" id="bottom-nav" aria-label="Navegación principal" hidden>
+      <button class="nav-item nav-item--active" type="button" data-nav="home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8v9h-6v-6H9v6H3z"/></svg><span>Inicio</span>
+      </button>
+      <button class="nav-item" type="button" data-nav="catalog">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span>Catálogo</span>
+      </button>
+      <button class="nav-item" type="button" data-nav="cart">
+        <span class="nav-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2 11h10l3-8H6M9 20h.01M17 20h.01"/></svg><span class="cart-badge" id="cart-badge">0</span></span><span>Compra</span>
+      </button>
+    </nav>
+
+    <section class="success-state" id="success-state" role="dialog" aria-modal="true" aria-labelledby="success-title" hidden>
+      <div class="success-confetti" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="success-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></div>
+      <span class="eyebrow eyebrow--orange">Pedido confirmado</span>
+      <h1 id="success-title">¡Todo listo!</h1>
+      <p>Tu pedido <strong>#F-2849</strong> llegará mañana entre 9:00 y 12:00.</p>
+      <div class="order-status">
+        <span class="status-line"></span>
+        <div class="status-step status-step--active"><i></i><span>Confirmado</span></div>
+        <div class="status-step"><i></i><span>En preparación</span></div>
+        <div class="status-step"><i></i><span>En camino</span></div>
+      </div>
+      <button class="primary-button" id="success-home" type="button">Volver al inicio</button>
+    </section>
+
+    <aside class="filter-sheet" id="filter-sheet" aria-labelledby="filter-title" aria-modal="true" role="dialog" hidden>
+      <button class="sheet-backdrop" id="close-filters-backdrop" type="button" aria-label="Cerrar filtros"></button>
+      <div class="sheet-panel">
+        <div class="sheet-handle" aria-hidden="true"></div>
+        <div class="sheet-heading">
+          <h2 id="filter-title">Filtros</h2>
+          <button class="icon-button" id="close-filters" type="button" aria-label="Cerrar filtros">×</button>
+        </div>
+        <fieldset>
+          <legend>Disponibilidad</legend>
+          <label class="switch-row"><span>Solo productos disponibles</span><input id="stock-only" type="checkbox"><span class="switch"></span></label>
+        </fieldset>
+        <fieldset>
+          <legend>Precio máximo</legend>
+          <div class="range-value"><span>Hasta</span><strong id="price-output">Q1,500</strong></div>
+          <input id="price-range" type="range" min="100" max="1500" step="100" value="1500">
+        </fieldset>
+        <button class="primary-button" id="apply-filters" type="button">Aplicar filtros</button>
+      </div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12 4 4 8-9"/></svg><span id="toast-message"></span>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
